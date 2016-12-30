@@ -1,9 +1,9 @@
-[submodule "linux"]
-	path = linux
-	url = https://github.com/mtulio/puppet-linux.git
-[submodule "dnssec"]
-	path = dnssec
-	url = https://github.com/mtulio/puppet-mod-dnssec.git
-[submodule "ssh"]
-	path = ssh
-	url = https://github.com/mtulio/puppet-mod-ssh.git
+[submodule "modules/linux"]
+	path = modules/linux
+	url = git@github.com:mtulio/puppet-module-linux.git
+[submodule "modules/dnssec"]
+	path = modules/dnssec
+	url = git@github.com:mtulio/puppet-module-dnssec.git
+[submodule "modules/ssh"]
+	path = modules/ssh
+	url = git@github.com:mtulio/puppet-module-ssh.git
