@@ -1,0 +1,24 @@
+#!/bin/bash
+# File managed by puppet
+# WARNING: DO NOT CHANGE THIS FILE
+#
+# Script managed by puppet to use git with custom SSH KEY.
+#
+# This script is a GIT command [wraper] to use with a 
+# custom SSH key. The SSH parameters are setup to be 
+# called on GIT SSH script [/etc/git/keys/*ssh_git.sh.run]
+# The default files directory is /etc/git/keys/
+#
+# WARNING: 
+#   * THIS SCRIPT WORKS WITH SCRIPT: *ssh_git.sh.run
+#   * The environment @identity and @ssh_port might to be 
+#		defined on puppet manifest.
+#		@identity is a *nix relative path of SSH private key;
+#		@ssh_port is a TCP port of SSH / GIT Server.
+#
+# Created by Marco Tulio R Braga 
+# Created at 20 April 2016
+# GIT project: http://git.cloud/sysadmin/sysadmin
+# GIT relative path: profiles/templates/git/ssh_git.sh.erb
+#
+$(which ssh) -o StrictHostKeyChecking=no -o UserKnownHostsFile=/etc/git/keys/known_hosts -i <%= @identity -%> -F /dev/null -p <%= @ssh_port -%> $*
