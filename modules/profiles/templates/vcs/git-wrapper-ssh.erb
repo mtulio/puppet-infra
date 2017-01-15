@@ -1,0 +1,37 @@
+#!/bin/bash
+# File managed by puppet
+# WARNING: DO NOT CHANGE THIS FILE
+#
+# Script managed by puppet to use git with custom SSH KEY.
+#
+# RUN GIT command [wrapper] using a custom SSH key just
+# setting up GIT environment GIT_SSH with a relative
+# path of 'ssh command' to run  when 'git *' command
+# will be called.
+# The default files directory is /etc/git/keys/
+#
+# WARNING: 
+#   * The environment @path_sh_git_ssh might to be 
+#		defined on puppet manifest. 
+#		@path_sh_git_ssh is a relative path of wraper 
+#       script. Default is: /etc/git/keys/*ssh_git.sh.
+#
+# Eg.: 
+#  $ /path/to/this/script git pull
+#  $ /path/to/this/script git push
+#
+#  LOG file will be create at /var/log/git/pull.log
+#
+# Created by Marco Tulio R Braga
+# Created at 20 April 2016
+#
+
+LOG_FILE="/var/log/git/pull.log"
+
+test -d $(dirname $LOG_FILE) || mkdir -p $(dirname $LOG_FILE) >/dev/null 2>&1
+echo -e "\n\t>>> Running script [$0] at [$(date)] <<<\n" >>$LOG_FILE 2>&1
+ 
+## You can enable GIT traceback to traceback git operations:
+#GIT_TRACE=1 GIT_SSH='<%= @path_sh_git_ssh -%>' $*
+
+GIT_SSH='<%= @path_sh_git_ssh -%>' $* >>$LOG_FILE 2>&1
