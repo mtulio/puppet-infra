@@ -1,5 +1,7 @@
 # Puppet Infrastructure
 
+[![Project Status: Concept](http://www.repostatus.org/badges/latest/concept.svg)](http://www.repostatus.org/#concept)
+
 Version tested: **Puppet 3.x**
 
 ## See Also
