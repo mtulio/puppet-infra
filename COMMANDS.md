@@ -9,6 +9,7 @@
 ### Config
 
 `puppet config print report reports --section user`
+
 `puppet config print --section main`
 
 ### Hiera
